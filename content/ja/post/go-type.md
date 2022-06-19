@@ -11,6 +11,8 @@ goは静的型付け言語なのでコンパイル時に型の整合性が検証
 
 # 組み込み型の一覧
 
+[A Tour of Go Basic types](https://go-tour-jp.appspot.com/basics/11)
+
 |種類|型名|
 |:-|:-|
 |論理型|bool|
