@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Tech Blog</title>
+    <link>https://0shima.github.io/tech.blog/tags/go/</link>
+    <description>Recent content in Go on Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-us</language><atom:link href="https://0shima.github.io/tech.blog/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go の型</title>
+      <link>https://0shima.github.io/tech.blog/post/go-type/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://0shima.github.io/tech.blog/post/go-type/</guid>
+      <description>組み込み型の一覧 コンポジット型 構造体 配列 スライス 参考文献 goは静的型付け言語なのでコンパイル時に型の整合性が検証される。暗黙の型変換も行われないため意図しない型変換でのトラブルも遭遇しにくい。また、値から型が明白なら型の記述を省ける。 組み込み型の一覧 A Tour of Go Basic types 種類 型名 論理型 bool 文</description>
+    </item>
+    
+  </channel>
+</rss>

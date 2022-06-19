@@ -23,5 +23,9 @@
     <loc>https://0shima.github.io/tech.blog/tags/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url><url>
+    <loc>https://0shima.github.io/tech.blog/post/slice/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
