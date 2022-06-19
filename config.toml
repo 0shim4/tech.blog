@@ -1,0 +1,51 @@
+title = "0shim4 の技術ブログ"
+description = "本サイトは主にGo、AWSに関するアウトプットをする技術ブログです。"
+baseURL = "https://0shima.github.io/tech.blog/"
+languageCode = "ja-us"
+language = "ja"
+theme = "gohugo-theme-ananke"
+publishDir = "docs"
+
+DefaultContentLanguage = "ja"
+SectionPagesMenu = "main"
+Paginate = 9
+googleAnalytics = ""
+enableRobotsTXT = true
+
+show_reading_time = true
+
+[languages]
+  [languages.ja]
+    title = "Tech Blog"
+    weight = 1
+    contentDir = "content/ja"
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  text_color = ""
+  author = "0shim4"
+  favicon = "https://img.icons8.com/doodle/344/dice.png"
+  site_logo = ""
+  description = "The last theme you'll ever need. Maybe."
+  recent_posts_number = 3
+  date_format = "2006-1-2"
+
+  # 以下ページから"bg-"を頭に付けて背景色を指定
+  # https://tachyons.io/docs/themes/skins/ 
+  background_color_class = "bg-black"
+
+[[params.ananke_socials]]
+name = "github"
+url = "https://github.com/0shima"
+
+[[params.ananke_socials]]
+name = "twitter"
+url = "https://twitter.com/0shim4"
+
+[[params.ananke_socials]]
+name = "amazon"
+url = "https://www.amazon.jp/hz/wishlist/ls/17EHTRWNX89R2?ref_=wl_share"
