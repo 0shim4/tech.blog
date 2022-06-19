@@ -5,6 +5,8 @@ languageCode = "ja-us"
 language = "ja"
 theme = "gohugo-theme-ananke"
 publishDir = "docs"
+hasCJKLanguage = true
+summaryLength = 140
 
 DefaultContentLanguage = "ja"
 SectionPagesMenu = "main"
@@ -13,6 +15,10 @@ googleAnalytics = ""
 enableRobotsTXT = true
 
 show_reading_time = true
+[caches]
+  [caches.images]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
 
 [languages]
   [languages.ja]
