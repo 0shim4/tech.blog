@@ -41,7 +41,7 @@
 <meta itemprop="name" content="スライスの操作">
 <meta itemprop="description" content="Goのスライスについてまとめた記事です。">
 
-<meta itemprop="wordCount" content="221">
+<meta itemprop="wordCount" content="1088">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="スライスの操作"/>
 <meta name="twitter:description" content="Goのスライスについてまとめた記事です。"/>
@@ -180,28 +180,137 @@
       
     </header>
     <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><ul>
+<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%A8%E3%81%AF">スライスとは</a></li>
+<li><a href="#len%E3%81%A8cap%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E9%95%B7%E3%81%95%E3%81%A8%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B">lenとcapでスライスの長さと容量を取得する</a></li>
+<li><a href="#%E5%80%A4%E3%81%AE%E5%88%9D%E6%9C%9F%E5%8C%96">値の初期化</a></li>
+<li><a href="#slice-tricks">Slice Tricks</a>
+<ul>
+<li><a href="#copy%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E8%A4%87%E8%A3%BD%E3%82%92%E8%A1%8C%E3%81%86">copyでスライスの複製を行う</a></li>
+<li><a href="#append%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E5%90%8C%E5%A3%AB%E3%82%92%E9%80%A3%E7%B5%90%E3%81%99%E3%82%8B">appendでスライス同士を連結する</a></li>
+<li><a href="#append-copy%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E5%86%85%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B">append, copyでスライス内の要素を削除する</a></li>
+<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%82%92%E9%80%86%E9%A0%86%E4%BD%8D%E4%B8%A6%E3%81%B9%E6%9B%BF%E3%81%88%E3%82%8B">スライスを逆順位並べ替える</a></li>
+<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%81%B6%E6%95%B0%E3%81%AE%E3%81%BF%E3%81%A7%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B">スライスの要素を偶数のみでフィルタリングする</a></li>
+<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%82%92%E4%BB%BB%E6%84%8F%E3%81%AE%E8%A6%81%E7%B4%A0%E6%95%B0%E3%81%AB%E5%88%86%E5%89%B2%E3%81%99%E3%82%8B">スライスを任意の要素数に分割する</a></li>
+</ul>
+</li>
 <li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
 </ul>
+<h1 id="スライスとは">スライスとは</h1>
+<p>スライスは要素数の指定なく同じ型のデータを並べて初期化するデータ構造。</p>
+<p>要素数を指定しないため配列よりもデータの扱いが柔軟。</p>
+<h1 id="lenとcapでスライスの長さと容量を取得する">lenとcapでスライスの長さと容量を取得する</h1>
 <p>スライスは配列と同様に同じ型のデータを集めて並べたデータ構造を持つ型で、複数要素のリストを便利に扱える。スライス自体が内部でリストの長さや容量を管理しているため、組み込み関数<code>len</code>や<code>cap</code>を使って長さや容量を取得できる。また、<code>append</code>を使ってデータの追加ができる。</p>
-<h1 id="参考文献">参考文献</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">著者</td>
-<td style="text-align:left">渡辺 雄也, 上田 拓也, 杉田 寿憲, 主森 理, 田村 弘, 鎌田 健史, 森 健太, 福岡 秀一郎, 三木 英斗</td>
-</tr>
-<tr>
-<td style="text-align:left">技術評論社</td>
-<td style="text-align:left">エキスパートたちのGo言語　一流のコードから応用力を学ぶ Software Design plus</td>
-</tr>
-</tbody>
-</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">src</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">src</span>, len(<span style="color:#a6e22e">src</span>), cap(<span style="color:#a6e22e">src</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: [1 2 3 4] 4 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">src</span> = append(<span style="color:#a6e22e">src</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">src</span>, len(<span style="color:#a6e22e">src</span>), cap(<span style="color:#a6e22e">src</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: [1 2 3 4 5] 5 8
+</span></span></span></code></pre></div><h1 id="値の初期化">値の初期化</h1>
+<p>スライスのゼロ値は<code>nil</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">slice</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">slice</span>, len(<span style="color:#a6e22e">slice</span>), cap(<span style="color:#a6e22e">slice</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: [0 0] 2 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">slice</span> = []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">2</span>: <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>:<span style="color:#ae81ff">13</span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">slice</span>, len(<span style="color:#a6e22e">slice</span>), cap(<span style="color:#a6e22e">slice</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: [0 0 1 0 0 5 0 13] 8 8
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">slice</span> = []<span style="color:#66d9ef">int</span>{}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">slice</span>, len(<span style="color:#a6e22e">slice</span>), cap(<span style="color:#a6e22e">slice</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: [] 0 0
+</span></span></span></code></pre></div><h1 id="slice-tricks">Slice Tricks</h1>
+<p>公式Wikiの<a href="https://github.com/golang/go/wiki/SliceTricks">SliceTricks</a>にスライスを扱ううえで有用なテクニックがまとめられています。</p>
+<h2 id="copyでスライスの複製を行う">copyでスライスの複製を行う</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">src</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dst</span> <span style="color:#f92672">:=</span> make([] <span style="color:#66d9ef">int</span>, len( <span style="color:#a6e22e">src</span>))
+</span></span><span style="display:flex;"><span>copy(<span style="color:#a6e22e">dst</span>, <span style="color:#a6e22e">src</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>. <span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">dst</span>, len( <span style="color:#a6e22e">dst</span>), cap( <span style="color:#a6e22e">dst</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: [1 2 3 4 5] 5 5
+</span></span></span></code></pre></div><h2 id="appendでスライス同士を連結する">appendでスライス同士を連結する</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">src1</span>, <span style="color:#a6e22e">src2</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>}, []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// appendでスライスを連結する
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dst</span> <span style="color:#f92672">:=</span> append(<span style="color:#a6e22e">src1</span>, <span style="color:#a6e22e">src2</span><span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [1 2 3 4 5]
+</span></span></span></code></pre></div><h2 id="append-copyでスライス内の要素を削除する">append, copyでスライス内の要素を削除する</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">src</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 3番めの要素（3）を削除する
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dst</span> <span style="color:#f92672">:=</span> append(<span style="color:#a6e22e">src</span>[:<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:]<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [1 2 4 5]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// append の 代わり に copy を 利用 する 場合
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">src</span> = []<span style="color:#66d9ef">int</span>{ <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dst</span> = <span style="color:#a6e22e">src</span>[: <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> copy( <span style="color:#a6e22e">src</span>[ <span style="color:#a6e22e">i</span>:], <span style="color:#a6e22e">src</span>[ <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>:])]
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [1 2 4 5]
+</span></span></span></code></pre></div><h2 id="スライスを逆順位並べ替える">スライスを逆順位並べ替える</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">src</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 方法1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">src</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">opp</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">src</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">opp</span>] = <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">opp</span>], <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">i</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">src</span>) <span style="color:#75715e">// Output: [5 4 3 2 1]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 方法2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">src</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">left</span> &lt; <span style="color:#a6e22e">right</span>; <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">left</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">left</span>], <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">right</span>] = <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">right</span>], <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">left</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">src</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: [1 2 3 4 5] // 方法 1 で 逆順 に なっ て いる ので 元 に 戻っ た
+</span></span></span></code></pre></div><h2 id="スライスの要素を偶数のみでフィルタリングする">スライスの要素を偶数のみでフィルタリングする</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">src</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// dst の 要素 は 空 だ が、 src と 同じ ポインタ を 指し て いる
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">dst</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">src</span>[:<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">src</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">even</span>(<span style="color:#a6e22e">v</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">dst</span> = append(<span style="color:#a6e22e">dst</span>, <span style="color:#a6e22e">v</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">dst</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Output: [2 4]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 次 の コード により src を ガベージコレクション に 回収 さ せる こと が できる
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">dst</span>); <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">src</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// 要素 の 型 の ゼロ 値 を 代入 する（ nil など）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 引数 が 偶数 か どう かを 判定 する 関数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">even</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="スライスを任意の要素数に分割する">スライスを任意の要素数に分割する</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">src</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">size</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">dst</span> <span style="color:#f92672">:=</span> make([][]<span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">0</span>, (len(<span style="color:#a6e22e">src</span>)<span style="color:#f92672">+</span><span style="color:#a6e22e">size</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#a6e22e">size</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">size</span> &lt; len(<span style="color:#a6e22e">src</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">src</span>, <span style="color:#a6e22e">dst</span> = <span style="color:#a6e22e">src</span>[<span style="color:#a6e22e">size</span>:], append(<span style="color:#a6e22e">dst</span>, <span style="color:#a6e22e">src</span>[<span style="color:#ae81ff">0</span>:<span style="color:#a6e22e">size</span>:<span style="color:#a6e22e">size</span>])
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">dst</span> = append(<span style="color:#a6e22e">dst</span>, <span style="color:#a6e22e">src</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">dst</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Output: [[1 2] [3 4] [5]]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h1 id="参考文献">参考文献</h1>
+<p><a href="https://gihyo.jp/book/2022/978-4-297-12519-6">エキスパートたちのGo言語　一流のコードから応用力を学ぶ Software Design plus</a></p>
 <ul class="pa0">
   
 </ul>
