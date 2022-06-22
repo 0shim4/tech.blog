@@ -11,7 +11,7 @@ summaryLength = 140
 DefaultContentLanguage = "ja"
 SectionPagesMenu = "main"
 Paginate = 9
-googleAnalytics = ""
+googleAnalytics = "G-BBSX93D4H9"
 enableRobotsTXT = true
 
 show_reading_time = true
