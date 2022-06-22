@@ -3,7 +3,7 @@ date: 2022-06-21 20:30
 description: "Goのマップについてまとめた記事です。"
 featured_image: "images/Go1-640x371.jpg"
 tags: []
-title: "スライスの操作"
+title: "マップの操作"
 disable_share: false
 draft: true
 ---
