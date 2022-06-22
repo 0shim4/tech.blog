@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Tech Blog</title>
-    <link>https://0shima.github.io/tech.blog/categories/</link>
+    <link>https://0shim4.github.io/tech.blog/categories/</link>
     <description>Recent content in Categories on Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-us</language><atom:link href="https://0shima.github.io/tech.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-us</language><atom:link href="https://0shim4.github.io/tech.blog/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

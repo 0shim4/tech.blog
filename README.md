@@ -1,7 +1,7 @@
 # Tech blog
 
 ```sh
-git clone --recursive https://github.com/0shima/tech.blog
+git clone --recursive https://github.com/0shim4/tech.blog
 
 hugo server -D
 

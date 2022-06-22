@@ -1,0 +1,85 @@
+---
+date: 2022-06-21 20:30
+description: "Goのマップについてまとめた記事です。"
+featured_image: "images/Go1-640x371.jpg"
+tags: []
+title: "スライスの操作"
+disable_share: false
+draft: true
+---
+- [マップとは](#マップとは)
+- [値の初期化](#値の初期化)
+- [値およびキーの存在有無の取得](#値およびキーの存在有無の取得)
+- [値の追加・削除](#値の追加削除)
+- [マップを利用して重複を削除](#マップを利用して重複を削除)
+- [参考文献](#参考文献)
+
+# マップとは
+
+スライスと同じく頻繁に利用されるコンポジット型の1つ。キーはユニークで値と紐づけられ、キーの順序は意図的にランダムにされる。追加や削除の順も関係ないため繰り返し処理の順序は保証されない。
+
+また、スライスと比べて要素が多くなるとマップの方が検索が早くなるが、メモリの消費も増えるのでバランスを見て扱うべきらしい。[参照](https://times.hrbrain.co.jp/entry/go-slice-or-map#map-or-slice-%E3%81%A9%E3%81%A3%E3%81%A1%E3%81%8B%E3%81%AD)
+
+# 値の初期化
+
+```go
+mapEmpty := map[string]int{}
+fmt.Println(mapEmpty)
+// OutPut: map[]
+
+mapMake := make(map[string]int)
+fmt.Println(mapMake)
+// OutPut: map[]
+
+// あらかじめ容量を確保
+mapCap := make(map[string]int, 10)
+fmt.Println(mapCap)
+// OutPut: map[]
+```
+
+# 値およびキーの存在有無の取得
+
+```go
+m := map[string]int{
+	"taro": 30,
+	"jiro": 20,
+}
+
+age := m["taro"]
+fmt.Println(age)
+// OutPut: 30
+
+age, ok := m["jiro"]
+fmt.Println(age, ok)
+// OutPut: 20 true
+
+age, ok = m["saburo"]
+fmt.Println(age, ok)
+// OutPut: 0 false
+```
+
+# 値の追加・削除
+
+```go
+m := map[string]int{
+	"taro": 30,
+	"jiro": 20,
+}
+
+m["saburo"] = 10
+fmt.Println(m["saburo"])
+// OutPut: 10
+
+delete(m, "jiro")
+fmt.Println(m)
+// OutPut: map[saburo:10 taro:30]
+```
+
+# マップを利用して重複を削除
+
+
+
+
+# 参考文献
+
+[エキスパートたちのGo言語　一流のコードから応用力を学ぶ Software Design plus](https://gihyo.jp/book/2022/978-4-297-12519-6)

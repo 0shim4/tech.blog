@@ -1,6 +1,6 @@
 title = "0shim4 の技術ブログ"
 description = "本サイトは主にGo、AWSに関するアウトプットをする技術ブログです。"
-baseURL = "https://0shima.github.io/tech.blog/"
+baseURL = "https://0shim4.github.io/tech.blog/"
 languageCode = "ja-us"
 language = "ja"
 theme = "gohugo-theme-ananke"
@@ -46,7 +46,7 @@ show_reading_time = true
 
 [[params.ananke_socials]]
 name = "github"
-url = "https://github.com/0shima"
+url = "https://github.com/0shim4"
 
 [[params.ananke_socials]]
 name = "twitter"

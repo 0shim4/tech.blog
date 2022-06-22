@@ -2,29 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://0shima.github.io/tech.blog/post/</loc>
+    <loc>https://0shim4.github.io/tech.blog/post/</loc>
     <lastmod>2017-03-02T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://0shima.github.io/tech.blog/</loc>
+    <loc>https://0shim4.github.io/tech.blog/</loc>
     <lastmod>2017-03-02T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://0shima.github.io/tech.blog/categories/</loc>
+    <loc>https://0shim4.github.io/tech.blog/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://0shima.github.io/tech.blog/post/go-type/</loc>
+    <loc>https://0shim4.github.io/tech.blog/post/go-type/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://0shima.github.io/tech.blog/tags/</loc>
+    <loc>https://0shim4.github.io/tech.blog/tags/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://0shima.github.io/tech.blog/post/slice/</loc>
+    <loc>https://0shim4.github.io/tech.blog/post/slice/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
