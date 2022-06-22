@@ -9,20 +9,29 @@
     <lastBuildDate>Thu, 02 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://0shim4.github.io/tech.blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go の型</title>
-      <link>https://0shim4.github.io/tech.blog/post/go-type/</link>
+      <link>https://0shim4.github.io/tech.blog/post/001-go-type/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://0shim4.github.io/tech.blog/post/go-type/</guid>
+      <guid>https://0shim4.github.io/tech.blog/post/001-go-type/</guid>
       <description>組み込み型の一覧 コンポジット型 構造体 配列 スライス 参考文献 goは静的型付け言語なのでコンパイル時に型の整合性が検証される。暗黙の型変換も行われないため意図しない型変換でのトラブルも遭遇しにくい。また、値から型が明白なら型の記述を省ける。 組み込み型の一覧 A Tour of Go Basic types 種類 型名 論理型 bool 文</description>
     </item>
     
     <item>
       <title>スライスの操作</title>
-      <link>https://0shim4.github.io/tech.blog/post/slice/</link>
+      <link>https://0shim4.github.io/tech.blog/post/002-slice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://0shim4.github.io/tech.blog/post/slice/</guid>
+      <guid>https://0shim4.github.io/tech.blog/post/002-slice/</guid>
       <description>スライスとは lenとcapでスライスの長さと容量を取得する 値の初期化 Slice Tricks copyでスライスの複製を行う appendでスライス同士を連結する append, copyでスライス内の要素を削除する スライスを逆順に並べ替える スライスの要素を偶数のみでフィルタリングする スライスを任意の要素数に分割する 参</description>
+    </item>
+    
+    <item>
+      <title>マップの操作</title>
+      <link>https://0shim4.github.io/tech.blog/post/003-map/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://0shim4.github.io/tech.blog/post/003-map/</guid>
+      <description>マップとは 値の初期化 値およびキーの存在有無の取得 値の追加・削除 マップを利用して重複を削除 参考文献 マップとは スライスと同じく頻繁に利用されるコンポジット型の1つ。キーはユニークで値と紐づけられ、キーの順序は意図的にランダムにされる。追加や削除の順も関係ないため繰り返し処理の順序は保</description>
     </item>
     
   </channel>

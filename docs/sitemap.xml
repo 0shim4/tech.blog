@@ -16,7 +16,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://0shim4.github.io/tech.blog/post/go-type/</loc>
+    <loc>https://0shim4.github.io/tech.blog/post/001-go-type/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -24,7 +24,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://0shim4.github.io/tech.blog/post/slice/</loc>
+    <loc>https://0shim4.github.io/tech.blog/post/002-slice/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://0shim4.github.io/tech.blog/post/003-map/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

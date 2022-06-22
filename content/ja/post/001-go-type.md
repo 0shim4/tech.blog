@@ -1,10 +1,11 @@
 ---
 date: 2022-06-19 23:27
 description: "Goの型についてまとめた記事"
-featured_image: "/images/programming-g63724825a_1280.jpg"
+featured_image: ""
 tags: []
 title: "Go の型"
 disable_share: false
+draft: false
 ---
 
 - [組み込み型の一覧](#組み込み型の一覧)

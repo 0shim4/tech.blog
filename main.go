@@ -3,13 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	src := []int{1, 2, 3, 4, 5}
-	size := 2
-	dst := make([][]int, 0, (len(src)+size-1)/size)
-	for size < len(src) {
-		src, dst = src[size:], append(dst, src[0:size:size])
+	brothers := []string{"taro", "jiro", "taro", "saburo", "saburo", "shiro"}
+
+	unique := make([]string, 0, len(brothers))
+
+	m := make(map[string]struct{})
+	for _, v := range brothers {
+		if _, ok := m[v]; ok {
+			continue
+		}
+		unique = append(unique, v)
+		m[v] = struct{}{}
 	}
-	dst = append(dst, src)
-	fmt.Println(dst)
-	// Output: [[1 2] [3 4] [5]]
+
+	fmt.Println(unique)
+	// OutPut: [taro jiro saburo shiro]
 }
