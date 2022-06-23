@@ -1,9 +1,10 @@
 ---
-date: 2022-06-19 23:27
+title: "Go の型"
 description: "Goの型についてまとめた記事"
+date: 2022-06-19T00:00:00-00:00
+lastmod: 2022-06-20T00:00:00-00:00
 featured_image: ""
 tags: []
-title: "Go の型"
 disable_share: false
 draft: false
 ---

@@ -36,7 +36,7 @@ show_reading_time = true
   favicon = "https://img.icons8.com/doodle/344/dice.png"
   site_logo = ""
   description = "The last theme you'll ever need. Maybe."
-  recent_posts_number = 3
+  recent_posts_number = 5
   date_format = "2006-1-2"
 
   # 以下ページから"bg-"を頭に付けて背景色を指定

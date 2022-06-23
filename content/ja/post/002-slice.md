@@ -1,9 +1,10 @@
 ---
-date: 2022-06-21 20:30
+title: "スライスの操作"
 description: "Goのスライスについてまとめた記事です。"
+date: 2022-06-20T00:00:00-00:00
+lastmod: 2022-06-21T00:00:00-00:00
 featured_image: ""
 tags: []
-title: "スライスの操作"
 disable_share: false
 draft: false
 ---
