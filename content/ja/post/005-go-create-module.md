@@ -142,3 +142,7 @@ go mod tidy
 go run main.go
 # Hi, Gladys. Welcome!
 ```
+
+# 参考
+
+[Tutorial: Create a Go module](https://go.dev/doc/tutorial/create-module)
