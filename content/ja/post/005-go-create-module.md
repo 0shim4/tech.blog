@@ -26,7 +26,7 @@ cd greetings
 
 ## greetings モジュールの初期化
 
-`go mod init`コマンドでカレントディレクトリをルートとする新しいモジュールの初期化をします。
+[`go mod init`](https://go.dev/ref/mod#go-mod-init)コマンドでカレントディレクトリをルートとする新しいモジュールの初期化をします。
 
 ```bash
 go mod init example.com/greetings
@@ -80,7 +80,7 @@ cd hello
 
 ## hello モジュールの初期化
 
-こちらも同じく`go mod init`コマンドを実行します。
+こちらも同じく[`go mod init`](https://go.dev/ref/mod#go-mod-init)コマンドを実行します。
 
 ```bash
 go mod init example.com/hello
@@ -120,7 +120,7 @@ func main() {
 
 ## ローカルに実装された greetings モジュールの参照
 
-example.com/greetingsは公開されていないため、importされたときにローカルの../greetingsを参照するようgo.modを変更する`go mod edit`コマンドを実行します。
+example.com/greetingsは公開されていないため、importされたときにローカルの../greetingsを参照するようgo.modを変更する[`go mod edit`](https://go.dev/ref/mod#go-work-edit)コマンドを実行します。
 
 ```bash
 go mod edit -replace example.com/greetings=../greetings
@@ -128,16 +128,17 @@ go mod edit -replace example.com/greetings=../greetings
 
 ## モジュールの依存関係を整理
 
-`go mod tidy`コマンドを実行します。ソースコードに不足していたり、使われていないモジュールを自動的に追加・削除してくれるコマンドです。
+[`go mod tidy`](https://go.dev/ref/mod#go-mod-tidy)コマンドを実行します。ソースコードに不足していたり、使われていないモジュールを自動的に追加・削除してくれるコマンドです。
 ちなみに、tidyは「几帳面」という意味だそうです。
 
 ```bash
 go mod tidy
+# go: found example.com/greetings in example.com/greetings v0.0.0-00010101000000-000000000000
 ```
 
 ## 実行
 
 ```bash
 go run main.go
-Hi, Gladys. Welcome!
+# Hi, Gladys. Welcome!
 ```

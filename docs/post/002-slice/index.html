@@ -41,7 +41,7 @@
 <meta itemprop="name" content="スライスの操作">
 <meta itemprop="description" content="Goのスライスについてまとめた記事です。"><meta itemprop="datePublished" content="2022-06-20T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-06-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1088">
+<meta itemprop="wordCount" content="945">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="スライスの操作"/>
 <meta name="twitter:description" content="Goのスライスについてまとめた記事です。"/>
@@ -178,23 +178,7 @@
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><ul>
-<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%A8%E3%81%AF">スライスとは</a></li>
-<li><a href="#len%E3%81%A8cap%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E9%95%B7%E3%81%95%E3%81%A8%E5%AE%B9%E9%87%8F%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B">lenとcapでスライスの長さと容量を取得する</a></li>
-<li><a href="#%E5%80%A4%E3%81%AE%E5%88%9D%E6%9C%9F%E5%8C%96">値の初期化</a></li>
-<li><a href="#slice-tricks">Slice Tricks</a>
-<ul>
-<li><a href="#copy%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E8%A4%87%E8%A3%BD%E3%82%92%E8%A1%8C%E3%81%86">copyでスライスの複製を行う</a></li>
-<li><a href="#append%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E5%90%8C%E5%A3%AB%E3%82%92%E9%80%A3%E7%B5%90%E3%81%99%E3%82%8B">appendでスライス同士を連結する</a></li>
-<li><a href="#append-copy%E3%81%A7%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E5%86%85%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B">append, copyでスライス内の要素を削除する</a></li>
-<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%82%92%E9%80%86%E9%A0%86%E3%81%AB%E4%B8%A6%E3%81%B9%E6%9B%BF%E3%81%88%E3%82%8B">スライスを逆順に並べ替える</a></li>
-<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%81%B6%E6%95%B0%E3%81%AE%E3%81%BF%E3%81%A7%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B">スライスの要素を偶数のみでフィルタリングする</a></li>
-<li><a href="#%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%82%92%E4%BB%BB%E6%84%8F%E3%81%AE%E8%A6%81%E7%B4%A0%E6%95%B0%E3%81%AB%E5%88%86%E5%89%B2%E3%81%99%E3%82%8B">スライスを任意の要素数に分割する</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
-</ul>
-<h1 id="スライスとは">スライスとは</h1>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="スライスとは">スライスとは</h1>
 <p>スライスは要素数の指定なく同じ型のデータを並べて初期化するデータ構造。</p>
 <p>要素数を指定しないため配列よりもデータの扱いが柔軟。</p>
 <h1 id="lenとcapでスライスの長さと容量を取得する">lenとcapでスライスの長さと容量を取得する</h1>
